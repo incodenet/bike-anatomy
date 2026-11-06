@@ -4,7 +4,8 @@
   border: 0;
   border-radius: var(--radius-lg);
   background-color: var(--color-neutral-subtle);
-  font: 600 14px var(--font-plex-sans);
+  font: 600 var(--text-size-label) / var(--text-size-label-leading)
+    var(--font-sans);
   color: var(--color-text-primary);
   cursor: pointer;
 }

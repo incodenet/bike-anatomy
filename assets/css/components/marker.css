@@ -5,7 +5,7 @@
 }
 
 .marker-number {
-  font: 700 13px var(--font-plex-sans);
+  font: 700 13px var(--font-sans);
   fill: var(--system-on-color, var(--color-text-inverse));
   text-anchor: middle;
   pointer-events: none;

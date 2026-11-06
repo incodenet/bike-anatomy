@@ -27,11 +27,6 @@
   padding: 4px 0;
 }
 
-.system-card-text {
-  font-size: 17px;
-  line-height: 1.6;
-}
-
 .side-by-side {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -51,7 +46,8 @@
   grid-template-columns: 1fr 1fr;
   gap: 0 28px;
   margin: 12px 0 0;
-  font: 400 15.5px/1.45 var(--font-plex-sans);
+  font: 400 var(--text-size-body) / var(--text-size-body-leading)
+    var(--font-sans);
 }
 
 .glossary-item {

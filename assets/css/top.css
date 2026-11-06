@@ -1,5 +1,4 @@
 @import url("core/reset.css");
-@import url("core/fonts.css");
 @import url("core/helpers.css");
 @import url("components/term.css");
 @import url("components/popover.css");
@@ -14,9 +13,8 @@
   --color-neutral-border: #e0e0e0;
   --color-neutral-border-strong: #d0d0d0;
 
-  --color-text-primary: #333;
-  --color-text-heading: #555;
-  --color-text-secondary: #777;
+  --color-text-primary: #1c2430;
+  --color-text-secondary: #5b6573;
   --color-text-inverse: #fff;
   --color-text-inverse-muted: #dce5f7;
   --color-text-on-accent: #2b2f36;
@@ -44,8 +42,22 @@
   --color-part-chainring: #fff6d9;
   --color-motion: #2563eb;
 
-  --font-inter: "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-plex-sans: "Plex Sans", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-sans:
+    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+
+  --text-size-h1: 42px;
+  --text-size-h1-leading: 50px;
+  --text-size-h2: 28px;
+  --text-size-h2-leading: 36px;
+  --text-size-h3: 20px;
+  --text-size-h3-leading: 28px;
+  --text-size-body: 17px;
+  --text-size-body-leading: 27px;
+  --text-size-label: 14px;
+  --text-size-label-leading: 20px;
+  --text-size-diagram-label: 14px;
+  --text-size-diagram-label-sm: 13px;
 
   --container-width: 864px;
 
@@ -65,30 +77,30 @@
 
 body {
   background-color: var(--color-neutral-bg);
-  font: 400 20px/1.7 var(--font-plex-sans);
+  font: 400 var(--text-size-body) / var(--text-size-body-leading)
+    var(--font-sans);
   color: var(--color-text-primary);
 }
 
 h1,
 h2,
 h3 {
-  font-family: var(--font-inter);
-  font-weight: 600;
-  color: var(--color-text-heading);
+  font-family: var(--font-sans);
+  font-weight: 700;
 }
 
 h2 {
   position: relative;
   margin: 72px 0 16px;
-  font-size: 30px;
-  line-height: 1.25;
+  font-size: var(--text-size-h2);
+  line-height: var(--text-size-h2-leading);
   letter-spacing: -0.015em;
 }
 
 h3 {
   margin: 36px 0 6px;
-  font-size: 20px;
-  line-height: 1.35;
+  font-size: var(--text-size-h3);
+  line-height: var(--text-size-h3-leading);
 }
 
 p {
@@ -111,7 +123,8 @@ figure {
 
 figcaption {
   margin-top: 12px;
-  font: 400 14.5px/1.5 var(--font-plex-sans);
+  font: 400 var(--text-size-label) / var(--text-size-label-leading)
+    var(--font-sans);
   color: var(--color-text-secondary);
 }
 
@@ -128,7 +141,7 @@ figcaption {
 
 .site-header-brand {
   display: inline-block;
-  font: 700 52px/1.1 var(--font-inter);
+  font: 700 52px/1.1 var(--font-sans);
   letter-spacing: -0.02em;
   color: var(--color-text-inverse);
   text-decoration: none;
@@ -142,7 +155,8 @@ figcaption {
 }
 
 .site-nav-link {
-  font: 400 18px var(--font-plex-sans);
+  font: 400 var(--text-size-body) / var(--text-size-body-leading)
+    var(--font-sans);
   color: var(--color-text-inverse-muted);
   text-decoration: none;
 }
@@ -165,14 +179,9 @@ figcaption {
 
 .intro-title {
   margin: 0 0 30px;
-  font-size: 46px;
-  line-height: 1.15;
+  font-size: var(--text-size-h1);
+  line-height: var(--text-size-h1-leading);
   letter-spacing: -0.02em;
-}
-
-.intro-lede {
-  font-size: 20px;
-  line-height: 1.7;
 }
 
 .intro-hero {
@@ -186,13 +195,13 @@ figcaption {
 }
 
 @media (max-width: 600px) {
-  body {
-    font-size: 18px;
+  :root {
+    --text-size-h1: 30px;
+    --text-size-h1-leading: 38px;
   }
 
   h2 {
     margin-top: 56px;
-    font-size: 25px;
   }
 
   .site-header-inner {
@@ -208,15 +217,7 @@ figcaption {
     padding: 18px 0;
   }
 
-  .site-nav-link {
-    font-size: 16px;
-  }
-
   .article {
     padding: 36px 18px 72px;
-  }
-
-  .intro-title {
-    font-size: 34px;
   }
 }

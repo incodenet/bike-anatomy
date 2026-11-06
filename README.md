@@ -5,8 +5,8 @@ from pedal to wheel, the seven gears with a live speed calculator, and how the
 rear derailleur shifts.
 
 The source is plain HTML, CSS and ES modules. Vite serves the source files in
-development, and the production build inlines everything (styles, scripts,
-fonts and photos) into a single `dist/index.html`.
+development, and the production build inlines everything (styles, scripts
+and photos) into a single `dist/index.html`.
 
 ## Development
 
@@ -38,12 +38,11 @@ Vite serves the source files with live reload. Open the URL it prints
 index.html                  The page (single source of markup)
 assets/
   css/
-    core/                   reset, @font-face, helpers
+    core/                   reset, helpers
     components/             reusable blocks (button, range-slider, disclosure, ...)
     top.css                 tokens, base elements, header, intro   (in <head>)
     main.css                parts, power path, gears, shifting
     bottom.css              systems, comparison, glossary, print
-  fonts/<family>/           Inter and Plex Sans, .woff2
   img/                      photos used in the annotated diagrams (.webp)
   js/
     main.js                 bootstrap only

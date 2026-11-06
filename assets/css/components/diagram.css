@@ -19,16 +19,18 @@
 }
 
 .diagram-label {
-  font: 500 15px var(--font-plex-sans);
+  font: 500 calc(var(--text-size-diagram-label) * var(--diagram-unit, 1))
+    var(--font-sans);
+  font-variant-numeric: tabular-nums;
   fill: var(--color-text-primary);
   paint-order: stroke;
   stroke: var(--color-neutral-bg);
-  stroke-width: 4px;
+  stroke-width: calc(4px * var(--diagram-unit, 1));
   stroke-linejoin: round;
 }
 
 .diagram-label-sm {
-  font-size: 14px;
+  font-size: calc(var(--text-size-diagram-label-sm) * var(--diagram-unit, 1));
 }
 
 .diagram-label-bold {
@@ -42,14 +44,4 @@
 .diagram-leader {
   stroke: var(--color-text-secondary);
   stroke-width: 1.2;
-}
-
-@media (max-width: 600px) {
-  .diagram-label {
-    font-size: 17px;
-  }
-
-  .diagram-label-sm {
-    font-size: 16px;
-  }
 }
