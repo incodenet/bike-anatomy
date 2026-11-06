@@ -486,6 +486,40 @@
   stroke-width: 4;
 }
 
+.freewheel-cog {
+  fill: var(--color-part-metal-light);
+  stroke: var(--color-part-outline);
+  stroke-width: 0.5;
+  stroke-linejoin: round;
+}
+
+.freewheel-cog-alt {
+  fill: var(--color-part-metal);
+}
+
+.freewheel-hub {
+  fill: var(--color-part-dark);
+}
+
+.freewheel-lockring {
+  fill: var(--color-part-metal-light);
+}
+
+.freewheel-bore {
+  fill: var(--color-part-outline);
+}
+
+.freewheel-backing {
+  fill: var(--color-neutral-bg);
+}
+
+.freewheel-cable {
+  fill: none;
+  stroke: var(--color-part-outline);
+  stroke-width: 0.9;
+  stroke-linecap: round;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .power-path.is-running .power-path-crank,
   .power-path.is-running .power-path-wheel {
