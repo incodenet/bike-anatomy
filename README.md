@@ -62,9 +62,19 @@ connection, and makes no runtime network requests.
 
 ## GitHub Actions download
 
-The **Build standalone HTML** workflow runs on pull requests, pushes to `main`
+The **Build and deploy** workflow runs on pull requests, pushes to `main`
 and manual runs. After a run completes, open it under **Actions** and download
 the **standalone-app** artifact. The artifact contains only `index.html`.
+
+If a run was re-run with **Re-run failed jobs**, its summary page shows only
+the artifacts of the selected attempt. Pick the first attempt from the attempt
+menu to see **standalone-app**.
+
+## GitHub Pages
+
+Pushes to `main` also deploy `dist/` to GitHub Pages:
+https://incodenet.github.io/bike-anatomy/. Pull requests build and validate
+but do not deploy. The page served there is the same standalone file.
 
 ## Guidelines
 
