@@ -4,7 +4,6 @@ const POPOVER_MAX_WIDTH = 300;
 const VIEWPORT_GUTTER = 12;
 const POPOVER_OFFSET_Y = 8;
 
-// Keeps the popover inside the viewport, below the term. Page coordinates.
 const getPopoverPosition = ({ rect, viewportWidth, scrollX, scrollY }) => {
   const width = Math.min(
     POPOVER_MAX_WIDTH,
@@ -20,7 +19,6 @@ const getPopoverPosition = ({ rect, viewportWidth, scrollX, scrollY }) => {
   };
 };
 
-// Formatted markup wraps text across lines; collapse it for display and ARIA.
 const getText = (element) =>
   element?.textContent.replace(/\s+/g, " ").trim() ?? "";
 

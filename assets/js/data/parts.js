@@ -1,4 +1,3 @@
-// Numbered parts in the "whole bike" drawing, keyed by their marker number.
 export const PARTS = {
   1: {
     name: "Top tube",

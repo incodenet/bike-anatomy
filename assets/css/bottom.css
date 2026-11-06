@@ -1,4 +1,3 @@
-/* ---------- The six systems ---------- */
 .systems {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -33,7 +32,6 @@
   line-height: 1.6;
 }
 
-/* ---------- Choosing and caring for one ---------- */
 .side-by-side {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -48,7 +46,6 @@
   padding-left: 22px;
 }
 
-/* ---------- Glossary ---------- */
 .glossary {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -84,7 +81,6 @@
   }
 }
 
-/* !important overrides JS-set inline state and hidden controls */
 @media print {
   .btn,
   .range-group,

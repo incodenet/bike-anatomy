@@ -1,4 +1,3 @@
-/* Numbered circle in a diagram, coloured by its system modifier */
 .marker-circle {
   fill: var(--system-color);
   stroke: var(--color-neutral-surface);

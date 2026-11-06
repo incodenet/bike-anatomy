@@ -7,7 +7,6 @@
 @import url("components/disclosure.css");
 @import url("components/data-table.css");
 
-/* ---------- The whole bike: parts explorer ---------- */
 .parts-drawing {
   min-width: 600px;
 }
@@ -31,7 +30,6 @@
   fill: var(--system-color);
 }
 
-/* The circle stroke below replaces the focus outline */
 .hotspot {
   outline: none;
   cursor: pointer;
@@ -124,7 +122,6 @@
   color: var(--system-on-color, var(--color-text-inverse));
 }
 
-/* ---------- From pedal to wheel: power path animation ---------- */
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -149,7 +146,6 @@
   }
 }
 
-/* Rotation centres in the drawing's viewBox units */
 .power-path-crank {
   transform-origin: 328px 144px;
 }
@@ -186,7 +182,6 @@
   --play-state: paused;
 }
 
-/* ---------- Seven gears ---------- */
 .cog {
   fill: transparent;
   stroke: none;
@@ -242,7 +237,6 @@
   color: var(--color-system-drivetrain-text);
 }
 
-/* The rect stroke below replaces the focus outline */
 .ratio-bar {
   outline: none;
 }
@@ -290,7 +284,6 @@
   background-color: var(--color-highlight-row);
 }
 
-/* ---------- How shifting works ---------- */
 .steps {
   margin: 0 0 18px;
   padding-left: 0;
@@ -345,7 +338,6 @@
   }
 }
 
-/* Reduced motion: the Play button spins the crank and wheel a few times */
 @media (prefers-reduced-motion: reduce) {
   .power-path.is-playing-once .power-path-crank,
   .power-path.is-playing-once .power-path-wheel {

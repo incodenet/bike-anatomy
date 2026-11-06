@@ -1,4 +1,3 @@
-/* Position and width are set from JS through custom properties */
 .popover {
   position: absolute;
   top: var(--popover-top, 0);

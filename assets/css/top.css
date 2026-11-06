@@ -7,7 +7,6 @@
 :root {
   color-scheme: light;
 
-  /* Color: neutral */
   --color-neutral-bg: #f7f7f7;
   --color-neutral-surface: #fff;
   --color-neutral-subtle: #eaeaea;
@@ -15,7 +14,6 @@
   --color-neutral-border: #e0e0e0;
   --color-neutral-border-strong: #d0d0d0;
 
-  /* Color: text */
   --color-text-primary: #333;
   --color-text-heading: #555;
   --color-text-secondary: #777;
@@ -23,12 +21,10 @@
   --color-text-inverse-muted: #dce5f7;
   --color-text-on-accent: #2b2f36;
 
-  /* Color: brand */
   --color-brand-primary: #2152bd;
   --color-brand-primary-hover: #163a8a;
   --color-brand-glow: #2052bb;
 
-  /* Color: bike systems */
   --color-system-frame: #2f6fb0;
   --color-system-steering: #7a5aa6;
   --color-system-wheels: #1f8a8a;
@@ -38,17 +34,13 @@
   --color-system-brakes: #c0392b;
   --color-system-contact: #5c7a4f;
 
-  /* Color: highlight */
   --color-highlight-row: #fff5d6;
 
-  /* Typography */
   --font-inter: "Inter", "Helvetica Neue", Arial, sans-serif;
   --font-plex-sans: "Plex Sans", system-ui, "Segoe UI", Roboto, sans-serif;
 
-  /* Layout */
   --container-width: 864px;
 
-  /* Radius */
   --radius-xs: 2px;
   --radius-sm: 3px;
   --radius-md: 6px;
@@ -56,7 +48,6 @@
   --radius-xl: 10px;
   --radius-round: 50%;
 
-  /* Effects */
   --shadow-popover: 0 8px 24px rgb(30 35 41 / 14%);
   --shadow-marker: drop-shadow(0 1px 2.5px rgb(0 0 0 / 35%));
   --duration-fast: 0.15s;
@@ -65,7 +56,6 @@
   --duration-shift: 0.9s;
 }
 
-/* Base elements */
 body {
   background-color: var(--color-neutral-bg);
   font: 400 20px/1.7 var(--font-plex-sans);
@@ -118,7 +108,6 @@ figcaption {
   color: var(--color-text-secondary);
 }
 
-/* Site header */
 .site-header {
   background-color: var(--color-brand-primary);
   color: var(--color-text-inverse);
@@ -161,7 +150,6 @@ figcaption {
   outline-color: var(--color-text-inverse);
 }
 
-/* Article + intro */
 .article {
   max-width: var(--container-width);
   margin: 0 auto;

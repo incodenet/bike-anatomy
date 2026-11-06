@@ -1,12 +1,11 @@
 import { GEARING } from "../data/gearing.js";
 import { prefersReducedMotion } from "../utils/dom.js";
 
-// Geometry of the "seven cogs from behind" drawing, in its viewBox units.
 const COG_CENTER_X = [70, 88.6, 107.5, 125.5, 142.6, 159.4, 175];
 const COG_CENTER_Y = 187.3;
 const COG_HEIGHT_PER_TOOTH = 9.4;
-const DERAILLEUR_GAP = 8; // space between the cog's lower edge and the cage
-const DERAILLEUR_HEIGHT = 44; // matches the cage <rect> height
+const DERAILLEUR_GAP = 8;
+const DERAILLEUR_HEIGHT = 44;
 const DERAILLEUR_LABEL_OFFSET = { x: 12, y: 27 };
 const SHIFT_DURATION_MS = 500;
 
@@ -15,7 +14,6 @@ const easeInOutQuad = (progress) =>
 
 const interpolate = (from, to, progress) => from + (to - from) * progress;
 
-// Where the cage, chain ends and label sit for a cog at x with `teeth` teeth.
 const getDerailleurLayout = ({ x, teeth }) => {
   const cogHalfHeight = (teeth * COG_HEIGHT_PER_TOOTH) / 2;
   const cageTop = COG_CENTER_Y + cogHalfHeight + DERAILLEUR_GAP;
@@ -29,7 +27,6 @@ const getDerailleurLayout = ({ x, teeth }) => {
   };
 };
 
-// Returns `moveToGear(gear)`, or null when the drawing is missing.
 export const createCogDrawing = (root) => {
   const derailleur = root.querySelector("[data-derailleur]");
   const label = root.querySelector("[data-derailleur-label]");

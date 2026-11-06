@@ -2,17 +2,15 @@ import { prefersReducedMotion } from "../utils/dom.js";
 
 const VISIBLE_THRESHOLD = 0.2;
 
-// Reduced motion: nothing moves until the reader presses Play.
 const bindPlayOnce = (root, button) => {
   button.textContent = "Play";
   button.addEventListener("click", () => {
     root.classList.remove("is-playing-once");
-    void root.offsetWidth; // restart the CSS animation
+    void root.offsetWidth;
     root.classList.add("is-playing-once");
   });
 };
 
-// Runs only while on screen; the button pauses and resumes it.
 const bindAutoplay = (root, button) => {
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(

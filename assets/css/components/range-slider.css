@@ -1,4 +1,3 @@
-/* Label | slider | value */
 .range-slider {
   display: grid;
   grid-template-columns: 96px 1fr 92px;

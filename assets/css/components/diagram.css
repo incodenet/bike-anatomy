@@ -1,4 +1,3 @@
-/* Inline SVG drawing or annotated photo */
 .diagram {
   display: block;
   width: 100%;
@@ -15,7 +14,6 @@
   max-width: 880px;
 }
 
-/* Keeps scrollable drawings legible on narrow screens */
 .diagram-scroll {
   min-width: 440px;
 }
@@ -37,7 +35,6 @@
   font-weight: 700;
 }
 
-/* Labels over a photo need no halo */
 .diagram-photo .diagram-label {
   stroke: none;
 }

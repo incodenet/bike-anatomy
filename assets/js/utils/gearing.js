@@ -1,6 +1,5 @@
 const KM_PER_MILE = 1.609;
 
-// Pure gear maths for one cog. Distances in metres, speed in km/h.
 export const calculateGear = ({
   chainringTeeth,
   cogTeeth,

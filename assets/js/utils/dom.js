@@ -1,11 +1,9 @@
-// Read once at load, like the CSS media query it mirrors.
 export const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)",
 ).matches;
 
 const ACTIVATION_KEYS = ["Enter", " "];
 
-// Makes a non-button element (an SVG <g role="button">) behave like a button.
 export const onActivate = (element, handler) => {
   element.addEventListener("click", (event) => {
     event.stopPropagation();
