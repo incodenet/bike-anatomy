@@ -1,0 +1,15 @@
+/* Inline glossary term: opens the glossary popover */
+.term {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  line-height: inherit;
+  color: var(--color-brand-primary);
+  cursor: pointer;
+}
+
+.term:hover,
+.term[aria-describedby] {
+  color: var(--color-brand-primary-hover);
+}

@@ -1,0 +1,227 @@
+@import url("core/reset.css");
+@import url("core/fonts.css");
+@import url("core/helpers.css");
+@import url("components/term.css");
+@import url("components/popover.css");
+
+:root {
+  color-scheme: light;
+
+  /* Color: neutral */
+  --color-neutral-bg: #f7f7f7;
+  --color-neutral-surface: #fff;
+  --color-neutral-subtle: #eaeaea;
+  --color-neutral-subtle-hover: #dcdcdc;
+  --color-neutral-border: #e0e0e0;
+  --color-neutral-border-strong: #d0d0d0;
+
+  /* Color: text */
+  --color-text-primary: #333;
+  --color-text-heading: #555;
+  --color-text-secondary: #777;
+  --color-text-inverse: #fff;
+  --color-text-inverse-muted: #dce5f7;
+  --color-text-on-accent: #2b2f36;
+
+  /* Color: brand */
+  --color-brand-primary: #2152bd;
+  --color-brand-primary-hover: #163a8a;
+  --color-brand-glow: #2052bb;
+
+  /* Color: bike systems */
+  --color-system-frame: #2f6fb0;
+  --color-system-steering: #7a5aa6;
+  --color-system-wheels: #1f8a8a;
+  --color-system-drivetrain: #f2b705;
+  --color-system-drivetrain-strong: #c99700;
+  --color-system-drivetrain-text: #8a6500;
+  --color-system-brakes: #c0392b;
+  --color-system-contact: #5c7a4f;
+
+  /* Color: highlight */
+  --color-highlight-row: #fff5d6;
+
+  /* Typography */
+  --font-inter: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-plex-sans: "Plex Sans", system-ui, "Segoe UI", Roboto, sans-serif;
+
+  /* Layout */
+  --container-width: 864px;
+
+  /* Radius */
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-round: 50%;
+
+  /* Effects */
+  --shadow-popover: 0 8px 24px rgb(30 35 41 / 14%);
+  --shadow-marker: drop-shadow(0 1px 2.5px rgb(0 0 0 / 35%));
+  --duration-fast: 0.15s;
+  --duration-base: 0.2s;
+  --duration-slow: 0.3s;
+  --duration-shift: 0.9s;
+}
+
+/* Base elements */
+body {
+  background-color: var(--color-neutral-bg);
+  font: 400 20px/1.7 var(--font-plex-sans);
+  color: var(--color-text-primary);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-inter);
+  font-weight: 600;
+  color: var(--color-text-heading);
+}
+
+h2 {
+  position: relative;
+  margin: 72px 0 16px;
+  font-size: 30px;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  margin: 36px 0 6px;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+p {
+  margin: 0 0 18px;
+}
+
+a {
+  color: var(--color-brand-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+figure {
+  margin: 32px 0;
+}
+
+figcaption {
+  margin-top: 12px;
+  font: 400 14.5px/1.5 var(--font-plex-sans);
+  color: var(--color-text-secondary);
+}
+
+/* Site header */
+.site-header {
+  background-color: var(--color-brand-primary);
+  color: var(--color-text-inverse);
+}
+
+.site-header-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 52px 24px 0;
+}
+
+.site-header-brand {
+  display: inline-block;
+  font: 700 52px/1.1 var(--font-inter);
+  letter-spacing: -0.02em;
+  color: var(--color-text-inverse);
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 30px;
+  padding: 30px 0 26px;
+}
+
+.site-nav-link {
+  font: 400 18px var(--font-plex-sans);
+  color: var(--color-text-inverse-muted);
+  text-decoration: none;
+}
+
+.site-nav-link:hover {
+  color: var(--color-text-inverse);
+  text-decoration: underline;
+}
+
+.site-header-brand:focus-visible,
+.site-nav-link:focus-visible {
+  outline-color: var(--color-text-inverse);
+}
+
+/* Article + intro */
+.article {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 56px 24px 96px;
+}
+
+.intro-title {
+  margin: 0 0 30px;
+  font-size: 46px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.intro-lede {
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+.intro-hero {
+  margin: 28px 0 8px;
+}
+
+.intro-hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 18px;
+  }
+
+  h2 {
+    margin-top: 56px;
+    font-size: 25px;
+  }
+
+  .site-header-inner {
+    padding: 30px 18px 0;
+  }
+
+  .site-header-brand {
+    font-size: 34px;
+  }
+
+  .site-nav {
+    gap: 4px 20px;
+    padding: 18px 0;
+  }
+
+  .site-nav-link {
+    font-size: 16px;
+  }
+
+  .article {
+    padding: 36px 18px 72px;
+  }
+
+  .intro-title {
+    font-size: 34px;
+  }
+}

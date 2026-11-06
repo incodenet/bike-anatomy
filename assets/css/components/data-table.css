@@ -1,0 +1,30 @@
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font: 400 15px/1.45 var(--font-plex-sans);
+}
+
+.data-table-header,
+.data-table-cell {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--color-neutral-border);
+  font-weight: 400;
+  text-align: left;
+  vertical-align: top;
+}
+
+.data-table-header {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.data-table-row-head {
+  font-weight: 700;
+}
+
+.data-table-num {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}

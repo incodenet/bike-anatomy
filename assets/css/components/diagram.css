@@ -1,0 +1,58 @@
+/* Inline SVG drawing or annotated photo */
+.diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.figure .diagram {
+  max-width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.figure .diagram-wide {
+  max-width: 880px;
+}
+
+/* Keeps scrollable drawings legible on narrow screens */
+.diagram-scroll {
+  min-width: 440px;
+}
+
+.diagram-label {
+  font: 500 15px var(--font-plex-sans);
+  fill: var(--color-text-primary);
+  paint-order: stroke;
+  stroke: var(--color-neutral-bg);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.diagram-label-sm {
+  font-size: 14px;
+}
+
+.diagram-label-bold {
+  font-weight: 700;
+}
+
+/* Labels over a photo need no halo */
+.diagram-photo .diagram-label {
+  stroke: none;
+}
+
+.diagram-leader {
+  stroke: var(--color-text-secondary);
+  stroke-width: 1.2;
+}
+
+@media (max-width: 600px) {
+  .diagram-label {
+    font-size: 17px;
+  }
+
+  .diagram-label-sm {
+    font-size: 16px;
+  }
+}

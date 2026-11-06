@@ -1,0 +1,361 @@
+@import url("components/system-colors.css");
+@import url("components/figure.css");
+@import url("components/diagram.css");
+@import url("components/marker.css");
+@import url("components/button.css");
+@import url("components/range-slider.css");
+@import url("components/disclosure.css");
+@import url("components/data-table.css");
+
+/* ---------- The whole bike: parts explorer ---------- */
+.parts-drawing {
+  min-width: 600px;
+}
+
+.part-highlight {
+  opacity: 0;
+  transition: opacity var(--duration-base);
+}
+
+.part-highlight.active {
+  opacity: 1;
+}
+
+.part-highlight-ring {
+  fill: none;
+  stroke: var(--system-color);
+  stroke-width: 3;
+}
+
+.part-highlight-dot {
+  fill: var(--system-color);
+}
+
+/* The circle stroke below replaces the focus outline */
+.hotspot {
+  outline: none;
+  cursor: pointer;
+}
+
+.hotspot .marker-circle {
+  transition: filter var(--duration-fast);
+}
+
+.hotspot:hover .marker-circle,
+.hotspot[aria-pressed="true"] .marker-circle {
+  stroke: var(--color-neutral-surface);
+  stroke-width: 2;
+  filter: var(--shadow-marker);
+}
+
+.hotspot:focus-visible .marker-circle {
+  stroke: var(--color-brand-primary);
+  stroke-width: 2.5;
+}
+
+.parts-info {
+  min-height: 46px;
+  margin-top: 14px;
+  font: 400 15px/1.5 var(--font-plex-sans);
+  color: var(--color-text-secondary);
+}
+
+.parts-info-name {
+  color: var(--color-text-primary);
+}
+
+.legend {
+  margin: 14px 0 0;
+  padding: 10px 0 0;
+  border-top: 1px solid var(--color-neutral-border);
+  font: 400 14px/1.4 var(--font-plex-sans);
+  list-style: none;
+}
+
+.legend-row {
+  display: grid;
+  grid-template-columns: 118px 1fr;
+  gap: 10px;
+  padding: 5px 0;
+}
+
+.legend-system {
+  padding-top: 3px;
+  font-weight: 700;
+  color: var(--system-text, var(--system-color));
+}
+
+.legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 6px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: none;
+  font: inherit;
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+.legend-item:hover,
+.legend-item[aria-pressed="true"] {
+  background-color: var(--color-neutral-subtle);
+}
+
+.legend-number {
+  display: inline-grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  border-radius: var(--radius-round);
+  background-color: var(--system-color);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--system-on-color, var(--color-text-inverse));
+}
+
+/* ---------- From pedal to wheel: power path animation ---------- */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes chain-move {
+  to {
+    stroke-dashoffset: -22;
+  }
+}
+
+@keyframes glow {
+  0%,
+  12% {
+    opacity: 1;
+    filter: none;
+  }
+
+  6% {
+    filter: drop-shadow(0 0 6px var(--color-brand-glow));
+  }
+}
+
+/* Rotation centres in the drawing's viewBox units */
+.power-path-crank {
+  transform-origin: 328px 144px;
+}
+
+.power-path-wheel {
+  transform-origin: 148px 128px;
+}
+
+.power-path-step-1 {
+  --step-delay: 0s;
+}
+
+.power-path-step-2 {
+  --step-delay: 0.5s;
+}
+
+.power-path-step-3 {
+  --step-delay: 1s;
+}
+
+.power-path-step-4 {
+  --step-delay: 1.5s;
+}
+
+.power-path-step-5 {
+  --step-delay: 2s;
+}
+
+.power-path-step-6 {
+  --step-delay: 2.5s;
+}
+
+.power-path.is-paused {
+  --play-state: paused;
+}
+
+/* ---------- Seven gears ---------- */
+.cog {
+  fill: transparent;
+  stroke: none;
+  transition: fill var(--duration-slow);
+}
+
+.cog.active {
+  fill: color-mix(in srgb, var(--color-system-drivetrain) 55%, transparent);
+  stroke: var(--color-system-drivetrain-strong);
+  stroke-width: 2;
+}
+
+.cog-teeth {
+  font-size: 11px;
+}
+
+.cog-gear.active {
+  font-weight: 700;
+  fill: var(--color-system-drivetrain-text);
+}
+
+.range-group {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+  font: 500 15px/1.4 var(--font-plex-sans);
+}
+
+.readout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-neutral-border);
+  font: 400 15px/1.5 var(--font-plex-sans);
+  color: var(--color-text-secondary);
+}
+
+.readout-value {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-primary);
+}
+
+.equation {
+  margin: 22px 0;
+  font: 500 18px/1.5 var(--font-plex-sans);
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+.equation-term {
+  color: var(--color-system-drivetrain-text);
+}
+
+/* The rect stroke below replaces the focus outline */
+.ratio-bar {
+  outline: none;
+}
+
+.ratio-bar-rect {
+  fill: var(--color-neutral-subtle);
+  stroke: var(--color-neutral-border);
+  stroke-width: 1.5;
+  cursor: pointer;
+}
+
+.ratio-bar:focus-visible .ratio-bar-rect {
+  stroke: var(--color-brand-primary);
+  stroke-width: 2.5;
+}
+
+.ratio-bar[aria-pressed="true"] .ratio-bar-rect {
+  fill: var(--color-system-drivetrain);
+  stroke: var(--color-system-drivetrain);
+}
+
+.gear-table-settings {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  margin: 0 0 12px;
+  font: 500 15px var(--font-plex-sans);
+}
+
+.select {
+  padding: 6px 8px;
+  border: 1px solid var(--color-neutral-border-strong);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-neutral-surface);
+  font: 500 15px var(--font-plex-sans);
+  color: var(--color-text-primary);
+}
+
+.gear-table {
+  min-width: 620px;
+}
+
+.gear-table-row.active .data-table-cell {
+  background-color: var(--color-highlight-row);
+}
+
+/* ---------- How shifting works ---------- */
+.steps {
+  margin: 0 0 18px;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps-item {
+  position: relative;
+  margin-bottom: 12px;
+  padding-left: 38px;
+  counter-increment: step;
+}
+
+.steps-item::before {
+  content: counter(step);
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-round);
+  background-color: var(--color-system-drivetrain);
+  font: 700 13px/24px var(--font-plex-sans);
+  color: var(--color-text-on-accent);
+  text-align: center;
+}
+
+.shift-demo-cage {
+  transform-box: view-box;
+  transform-origin: 322px 124px;
+  transition: transform var(--duration-shift) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shift-demo.is-shifted .shift-demo-cage {
+  transform: translateX(-22px) rotate(-3deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .power-path.is-running .power-path-crank,
+  .power-path.is-running .power-path-wheel {
+    animation: spin 1.27s linear infinite var(--play-state, running);
+  }
+
+  .power-path.is-running .power-path-chain {
+    animation: chain-move 0.4s linear infinite reverse
+      var(--play-state, running);
+  }
+
+  .power-path.is-running .power-path-step {
+    animation: glow 4s var(--step-delay) infinite var(--play-state, running);
+  }
+}
+
+/* Reduced motion: the Play button spins the crank and wheel a few times */
+@media (prefers-reduced-motion: reduce) {
+  .power-path.is-playing-once .power-path-crank,
+  .power-path.is-playing-once .power-path-wheel {
+    animation: spin 1.27s linear 3;
+  }
+}
+
+@media (max-width: 520px) {
+  .legend-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}

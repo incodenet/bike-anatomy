@@ -1,21 +1,72 @@
-# DIY Tripod Side Table
+# Bike Anatomy
 
-This project is a static HTML, CSS, and JavaScript guide with an interactive build phase guide and leg calculator.
+An interactive guide to how a 7-speed bike works: the six systems, the path
+from pedal to wheel, the seven gears with a live speed calculator, and how the
+rear derailleur shifts.
+
+The source is plain HTML, CSS and ES modules. Vite serves the source files in
+development, and the production build inlines everything (styles, scripts,
+fonts and photos) into a single `dist/index.html`.
 
 ## Development
 
-Install the development dependencies with `npm install`, then run `npm run dev`. Vite serves the source files locally and provides live reload while you work.
+```sh
+npm install
+npm run dev
+```
 
-## Production build
+Vite serves the source files with live reload. Open the URL it prints
+(usually `http://localhost:5173`).
 
-Run `npm run build` to create the production output in `dist/`. Run `npm run validate:standalone` to check that the output is a self-contained HTML file with embedded JavaScript, styles, fonts, and illustrations.
+> The root `index.html` is the **source** page and loads
+> `assets/js/main.js` as an ES module. Browsers block module scripts on
+> `file://` (a CORS error), so don't open it directly from disk: use
+> `npm run dev`, or build and open `dist/index.html`, which inlines the script
+> and works offline.
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Dev server with live reload |
+| `npm run build` | Bundle everything into `dist/index.html` |
+| `npm run preview` | Serve the built output locally |
+| `npm run validate:standalone` | Check that `dist/` is exactly one self-contained file |
+| `npm run format` | Format HTML, CSS and JS with Prettier |
+
+## Project structure
+
+```
+index.html                  The page (single source of markup)
+assets/
+  css/
+    core/                   reset, @font-face, helpers
+    components/             reusable blocks (button, range-slider, disclosure, ...)
+    top.css                 tokens, base elements, header, intro   (in <head>)
+    main.css                parts, power path, gears, shifting
+    bottom.css              systems, comparison, glossary, print
+  fonts/<family>/           Inter and Plex Sans, .woff2
+  img/                      photos used in the annotated diagrams (.webp)
+  js/
+    main.js                 bootstrap only
+    data/                   parts list and gearing data
+    modules/                one module per feature (initX)
+    utils/                  pure helpers (gear maths) and DOM helpers
+scripts/
+  validate-standalone.mjs   checks on the production output
+```
 
 ## Standalone offline HTML
 
-The final artifact is `dist/index.html`. Open that file directly in a browser, including through its `file://` URL, to use the guide without a development server or internet connection. JetBrains Mono is bundled locally; the design's Inter and Fraunces typefaces use system font fallbacks offline. No external runtime APIs are used.
-
-The source is kept in separate HTML, CSS, and JavaScript files. Development mode serves those source files; the production build bundles and inlines them into the single standalone HTML artifact.
+The final artifact is `dist/index.html`. Open it directly in a browser,
+including through a `file://` URL. It needs no server and no internet
+connection, and makes no runtime network requests.
 
 ## GitHub Actions download
 
-The **Build standalone HTML** workflow runs for pull requests, pushes to `main`, and manual runs. After it completes, open the run under **Actions**, then download the **standalone-app** artifact from the run's Artifacts section. The artifact contains only `index.html`.
+The **Build standalone HTML** workflow runs on pull requests, pushes to `main`
+and manual runs. After a run completes, open it under **Actions** and download
+the **standalone-app** artifact. The artifact contains only `index.html`.
+
+## Guidelines
+
+Code follows the project guidelines in `.docs/`: `architecture.md`, `html.md`,
+`css.md` and `javascript.md`.

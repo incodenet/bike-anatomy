@@ -1,0 +1,98 @@
+/* ---------- The six systems ---------- */
+.systems {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.system-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.system-card-title::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-round);
+  background-color: var(--system-color);
+}
+
+.system-card-figure {
+  margin: 10px 0 12px;
+  padding: 4px 0;
+}
+
+.system-card-text {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* ---------- Choosing and caring for one ---------- */
+.side-by-side {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 28px;
+}
+
+.tips {
+  display: grid;
+  gap: 6px;
+  margin: 0 0 18px;
+  padding-left: 22px;
+}
+
+/* ---------- Glossary ---------- */
+.glossary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 28px;
+  margin: 12px 0 0;
+  font: 400 15.5px/1.45 var(--font-plex-sans);
+}
+
+.glossary-item {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-neutral-border);
+}
+
+.glossary-term {
+  font-weight: 700;
+}
+
+.glossary-definition {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 640px) {
+  .systems,
+  .side-by-side {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .glossary {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* !important overrides JS-set inline state and hidden controls */
+@media print {
+  .btn,
+  .range-group,
+  .popover {
+    display: none !important;
+  }
+
+  .disclosure > * {
+    display: block;
+  }
+}

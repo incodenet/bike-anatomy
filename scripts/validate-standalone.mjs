@@ -36,18 +36,26 @@ if (!styleBlocks.some(([, content]) => content.trim().length > 0)) {
   fail("No embedded CSS was found.");
 }
 
-const runtimeTags = html.match(/<(?:script|link|img|source|video|audio|iframe|object|embed)\b[^>]*>/gi) ?? [];
-const runtimeAttributes = /\b(src|href|data)\s*=\s*(["'])(.*?)\2/gi;
+const runtimeTags = html.match(/<(?:script|link|img|image|source|video|audio|iframe|object|embed)\b[^>]*>/gi) ?? [];
+const runtimeAttributes = /(?<![\w-])((?:xlink:)?href|src|data)\s*=\s*(["'])(.*?)\2/gi;
 for (const tag of runtimeTags) {
   const isLinkStylesheet = /^<link\b/i.test(tag) && /\brel\s*=\s*(["'])?stylesheet\1?/i.test(tag);
   const isScript = /^<script\b/i.test(tag);
+  // SVG <image href> photos are inlined by Vite like <img src>.
+  const isSvgImage = /^<image\b/i.test(tag);
   const isAssetTag = /^<(?:img|source|video|audio|iframe|object|embed)\b/i.test(tag);
-  if (!isLinkStylesheet && !isScript && !isAssetTag) continue;
+  if (!isLinkStylesheet && !isScript && !isSvgImage && !isAssetTag) continue;
 
   for (const match of tag.matchAll(runtimeAttributes)) {
     const attribute = match[1].toLowerCase();
     const value = match[3].trim();
-    const resourceAttribute = isScript ? attribute === "src" : isLinkStylesheet ? attribute === "href" : ["src", "data"].includes(attribute);
+    const resourceAttribute = isScript
+      ? attribute === "src"
+      : isLinkStylesheet
+        ? attribute === "href"
+        : isSvgImage
+          ? ["href", "xlink:href"].includes(attribute)
+          : ["src", "data"].includes(attribute);
     if (!resourceAttribute || !value) continue;
     if (/^(?:https?:)?\/\//i.test(value)) fail(`External runtime resource remains: ${value}`);
     else if (!/^(?:data:|#|blob:)/i.test(value)) fail(`Local runtime resource remains: ${value}`);

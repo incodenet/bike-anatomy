@@ -1,0 +1,32 @@
+/*
+ * One modifier per bike system. Each sets the local colour variables that
+ * markers, legend rows and system cards read:
+ *   --system-color     fill / accent
+ *   --system-text      text on a light background
+ *   --system-on-color  text placed on top of --system-color
+ */
+.system-frame {
+  --system-color: var(--color-system-frame);
+}
+
+.system-steering {
+  --system-color: var(--color-system-steering);
+}
+
+.system-wheels {
+  --system-color: var(--color-system-wheels);
+}
+
+.system-drivetrain {
+  --system-color: var(--color-system-drivetrain);
+  --system-text: var(--color-system-drivetrain-text);
+  --system-on-color: var(--color-text-on-accent);
+}
+
+.system-brakes {
+  --system-color: var(--color-system-brakes);
+}
+
+.system-contact {
+  --system-color: var(--color-system-contact);
+}

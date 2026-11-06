@@ -1,0 +1,13 @@
+/* Numbered circle in a diagram, coloured by its system modifier */
+.marker-circle {
+  fill: var(--system-color);
+  stroke: var(--color-neutral-surface);
+  stroke-width: 2;
+}
+
+.marker-number {
+  font: 700 13px var(--font-plex-sans);
+  fill: var(--system-on-color, var(--color-text-inverse));
+  text-anchor: middle;
+  pointer-events: none;
+}

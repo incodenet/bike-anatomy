@@ -1,5 +1,5 @@
 {
-  "name": "diy-tripod-side-table",
+  "name": "bike-anatomy",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -7,9 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "validate:standalone": "node scripts/validate-standalone.mjs"
+    "validate:standalone": "node scripts/validate-standalone.mjs",
+    "format": "prettier --write index.html \"assets/**/*.{css,js}\""
   },
   "devDependencies": {
+    "prettier": "3.6.2",
     "vite": "6.4.1",
     "vite-plugin-singlefile": "2.3.4"
   }

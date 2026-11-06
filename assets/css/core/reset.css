@@ -1,0 +1,32 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  /*
+   * `transition: none` rather than a tiny duration: transition-property
+   * defaults to `all`, so a 0.01ms duration would animate every property
+   * change (e.g. the glossary popover jumping in from its old position).
+   */
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}

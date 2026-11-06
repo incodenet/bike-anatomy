@@ -1,0 +1,37 @@
+.figure {
+  padding: 8px 0;
+}
+
+.figure-compact {
+  margin: 12px 0;
+}
+
+.figure-wide {
+  margin-right: -60px;
+  margin-left: -60px;
+}
+
+/* Caption row with an action button */
+.figure-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.figure-bar .btn {
+  flex: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 820px) {
+  .figure-wide {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .figure {
+    padding: 4px 0;
+  }
+}

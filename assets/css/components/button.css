@@ -1,0 +1,14 @@
+.btn {
+  min-height: 36px;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-neutral-subtle);
+  font: 600 14px var(--font-plex-sans);
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--color-neutral-subtle-hover);
+}
