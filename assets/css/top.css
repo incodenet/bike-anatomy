@@ -36,6 +36,14 @@
 
   --color-highlight-row: #fff5d6;
 
+  --color-part-metal: #9aa4b1;
+  --color-part-metal-light: #d5dae1;
+  --color-part-dark: #4a525c;
+  --color-part-outline: #1c2430;
+  --color-part-chain: #3a4048;
+  --color-part-chainring: #fff6d9;
+  --color-motion: #2563eb;
+
   --font-inter: "Inter", "Helvetica Neue", Arial, sans-serif;
   --font-plex-sans: "Plex Sans", system-ui, "Segoe UI", Roboto, sans-serif;
 
@@ -53,7 +61,6 @@
   --duration-fast: 0.15s;
   --duration-base: 0.2s;
   --duration-slow: 0.3s;
-  --duration-shift: 0.9s;
 }
 
 body {

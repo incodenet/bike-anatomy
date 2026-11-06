@@ -310,16 +310,180 @@
   font: 700 13px/24px var(--font-plex-sans);
   color: var(--color-text-on-accent);
   text-align: center;
+  transition: box-shadow var(--duration-base);
 }
 
-.shift-demo-cage {
-  transform-box: view-box;
-  transform-origin: 322px 124px;
-  transition: transform var(--duration-shift) cubic-bezier(0.4, 0, 0.2, 1);
+.steps-item.active::before {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-motion) 40%, transparent);
 }
 
-.shift-demo.is-shifted .shift-demo-cage {
-  transform: translateX(-22px) rotate(-3deg);
+.shift-animation-status {
+  min-height: 24px;
+  margin: 10px 0 0;
+  font: 400 15px/1.5 var(--font-plex-sans);
+  color: var(--color-text-secondary);
+}
+
+.shift-anim-axle {
+  stroke: var(--color-part-dark);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.shift-anim-cog {
+  fill: var(--color-part-metal-light);
+  stroke: var(--color-part-dark);
+  stroke-width: 1.5;
+}
+
+.shift-anim-cog-active {
+  fill: var(--color-system-drivetrain);
+  stroke: var(--color-system-drivetrain-strong);
+  stroke-width: 2;
+}
+
+.shift-anim-chainring {
+  fill: var(--color-part-chainring);
+  stroke: var(--color-system-drivetrain);
+  stroke-width: 3;
+}
+
+.shift-anim-chain {
+  fill: none;
+  stroke: var(--color-part-chain);
+  stroke-width: 4;
+  stroke-dasharray: 5 2;
+  stroke-linejoin: round;
+}
+
+.shift-anim-housing {
+  fill: none;
+  stroke: var(--color-part-outline);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.shift-anim-cable-flow {
+  fill: none;
+  stroke: var(--color-motion);
+  stroke-width: 2.5;
+  stroke-dasharray: 5 7;
+}
+
+.shift-anim-cable {
+  stroke: var(--color-part-dark);
+  stroke-width: 1.8;
+}
+
+.shift-anim-shifter {
+  fill: var(--color-part-dark);
+}
+
+.shift-anim-display {
+  fill: var(--color-neutral-surface);
+}
+
+.shift-anim-display-text {
+  font: 700 14px var(--font-plex-sans);
+  fill: var(--color-part-outline);
+  text-anchor: middle;
+}
+
+:is(.shift-anim-trigger, .shift-anim-fixed) {
+  fill: var(--color-part-metal);
+  stroke: var(--color-part-outline);
+  stroke-width: 2;
+}
+
+.shift-anim-barrel {
+  fill: var(--color-part-metal-light);
+  stroke: var(--color-part-outline);
+  stroke-width: 1.5;
+}
+
+.shift-anim-barrel-rib {
+  stroke: var(--color-part-dark);
+}
+
+.shift-anim-screw {
+  fill: var(--color-neutral-surface);
+  stroke: var(--color-part-outline);
+  stroke-width: 1.5;
+}
+
+.shift-anim-screw-slot {
+  stroke: var(--color-part-outline);
+  stroke-width: 1.5;
+}
+
+.shift-anim-body {
+  fill: var(--color-system-drivetrain);
+  fill-opacity: 0.18;
+}
+
+.shift-anim-link-outline {
+  stroke: var(--color-part-outline);
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+.shift-anim-link {
+  stroke: var(--color-system-drivetrain);
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.shift-anim-pivot {
+  fill: var(--color-neutral-surface);
+  stroke: var(--color-part-outline);
+}
+
+.shift-anim-spring {
+  fill: none;
+  stroke: var(--color-part-outline);
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+}
+
+.shift-anim-moving {
+  fill: var(--color-system-drivetrain);
+  stroke: var(--color-part-outline);
+  stroke-width: 2;
+}
+
+.shift-anim-cage {
+  fill: var(--color-system-drivetrain);
+  fill-opacity: 0.85;
+  stroke: var(--color-part-outline);
+  stroke-width: 2;
+}
+
+.shift-anim-ghost {
+  fill: none;
+  stroke: var(--color-motion);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 3;
+}
+
+.shift-anim-pulley {
+  fill: var(--color-part-dark);
+  stroke: var(--color-part-outline);
+  stroke-width: 1.5;
+}
+
+.shift-anim-pulley-hub {
+  fill: var(--color-part-metal-light);
+}
+
+.shift-anim-badge .marker-circle {
+  transition:
+    stroke var(--duration-base),
+    stroke-width var(--duration-base);
+}
+
+.shift-anim-badge.active .marker-circle {
+  stroke: var(--color-motion);
+  stroke-width: 4;
 }
 
 @media (prefers-reduced-motion: no-preference) {

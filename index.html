@@ -2302,27 +2302,520 @@
         <section id="shifting" class="section" aria-labelledby="shifting-title">
           <h2 id="shifting-title">How shifting works</h2>
           <ol class="steps">
-            <li class="steps-item">
+            <li class="steps-item" data-shift-step="1">
               Click the right-hand trigger shifter. It pulls or releases the
               gear cable by one fixed step; that’s
               <button type="button" class="term" data-term="indexing">
                 indexing</button
               >: 7 clicks, one per gear.
             </li>
-            <li class="steps-item">
+            <li class="steps-item" data-shift-step="2">
               The cable moves the derailleur’s
               <button type="button" class="term" data-term="parallelogram">
                 parallelogram
               </button>
               body sideways, carrying the guide pulley under the next cog.
             </li>
-            <li class="steps-item">
+            <li class="steps-item" data-shift-step="3">
               Keep pedalling and the chain climbs onto the new cog. When the
               cable is released, a spring in the derailleur pulls it back the
               other way.
             </li>
           </ol>
-          <figure class="figure shift-demo" data-shift-demo>
+          <figure class="figure shift-animation" data-shift-animation>
+            <div class="scroll-x">
+              <svg
+                class="diagram diagram-scroll"
+                viewBox="0 0 600 330"
+                role="img"
+                aria-labelledby="shift-animation-title"
+              >
+                <title id="shift-animation-title">
+                  Animated diagram of one shift, seen from behind: the shifter
+                  pulls the cable, the parallelogram swings the guide pulley
+                  under the next bigger cog, and the chain climbs onto it
+                </title>
+                <line
+                  class="shift-anim-axle"
+                  x1="172"
+                  y1="118"
+                  x2="380"
+                  y2="118"
+                />
+                <g class="shift-anim-cog">
+                  <rect x="179" y="48" width="14" height="140" rx="7" />
+                  <rect x="209" y="58" width="14" height="120" rx="7" />
+                  <rect x="239" y="63" width="14" height="110" rx="7" />
+                  <rect x="269" y="68" width="14" height="100" rx="7" />
+                  <rect x="299" y="73" width="14" height="90" rx="7" />
+                  <rect x="329" y="78" width="14" height="80" rx="7" />
+                  <rect x="359" y="83" width="14" height="70" rx="7" />
+                </g>
+                <g class="shift-anim-cog-active">
+                  <rect
+                    data-shift-cog
+                    opacity="0"
+                    x="179"
+                    y="48"
+                    width="14"
+                    height="140"
+                    rx="7"
+                  />
+                  <rect
+                    data-shift-cog
+                    opacity="0"
+                    x="209"
+                    y="58"
+                    width="14"
+                    height="120"
+                    rx="7"
+                  />
+                  <rect
+                    data-shift-cog
+                    opacity="0"
+                    x="239"
+                    y="63"
+                    width="14"
+                    height="110"
+                    rx="7"
+                  />
+                  <rect
+                    data-shift-cog
+                    opacity="1"
+                    x="269"
+                    y="68"
+                    width="14"
+                    height="100"
+                    rx="7"
+                  />
+                  <rect
+                    data-shift-cog
+                    opacity="0"
+                    x="299"
+                    y="73"
+                    width="14"
+                    height="90"
+                    rx="7"
+                  />
+                  <rect
+                    data-shift-cog
+                    opacity="0"
+                    x="329"
+                    y="78"
+                    width="14"
+                    height="80"
+                    rx="7"
+                  />
+                  <rect
+                    data-shift-cog
+                    opacity="0"
+                    x="359"
+                    y="83"
+                    width="14"
+                    height="70"
+                    rx="7"
+                  />
+                </g>
+                <rect
+                  class="shift-anim-chainring"
+                  x="541"
+                  y="8"
+                  width="14"
+                  height="220"
+                  rx="7"
+                />
+                <line
+                  class="shift-anim-chain"
+                  data-shift-part="chainTop"
+                  x1="276"
+                  y1="68"
+                  x2="548"
+                  y2="8"
+                />
+                <path
+                  class="shift-anim-housing"
+                  d="M48 58 V190 Q48 232 70 232"
+                />
+                <path
+                  class="shift-anim-cable-flow"
+                  data-shift-part="cableFlow"
+                  d="M48 58 V190 Q48 232 70 232"
+                  opacity="0"
+                />
+                <rect
+                  class="shift-anim-shifter"
+                  x="18"
+                  y="26"
+                  width="58"
+                  height="32"
+                  rx="8"
+                />
+                <rect
+                  class="shift-anim-display"
+                  x="26"
+                  y="32"
+                  width="24"
+                  height="20"
+                  rx="3"
+                />
+                <text
+                  class="shift-anim-display-text"
+                  data-shift-part="display"
+                  x="38"
+                  y="47"
+                >
+                  4
+                </text>
+                <g data-shift-part="trigger">
+                  <rect
+                    class="shift-anim-trigger"
+                    x="56"
+                    y="34"
+                    width="26"
+                    height="12"
+                    rx="6"
+                  />
+                </g>
+                <rect
+                  class="shift-anim-fixed"
+                  x="90"
+                  y="228"
+                  width="36"
+                  height="62"
+                  rx="6"
+                />
+                <rect
+                  class="shift-anim-barrel"
+                  x="68"
+                  y="226"
+                  width="22"
+                  height="12"
+                  rx="3"
+                />
+                <path
+                  class="shift-anim-barrel-rib"
+                  d="M74 226v12M79 226v12M84 226v12"
+                />
+                <circle class="shift-anim-screw" cx="102" cy="256" r="5" />
+                <circle class="shift-anim-screw" cx="102" cy="274" r="5" />
+                <path class="shift-anim-screw-slot" d="M99 256h6M99 274h6" />
+                <text
+                  x="84"
+                  y="261"
+                  text-anchor="end"
+                  class="diagram-label diagram-label-sm diagram-label-bold"
+                >
+                  H
+                </text>
+                <text
+                  x="84"
+                  y="279"
+                  text-anchor="end"
+                  class="diagram-label diagram-label-sm diagram-label-bold"
+                >
+                  L
+                </text>
+                <polygon
+                  class="shift-anim-body"
+                  data-shift-part="body"
+                  points="120,240 252,186 252,222 120,276"
+                />
+                <line
+                  class="shift-anim-link-outline"
+                  data-shift-part="linkTop"
+                  x1="120"
+                  y1="240"
+                  x2="252"
+                  y2="186"
+                />
+                <line
+                  class="shift-anim-link"
+                  data-shift-part="linkTop"
+                  x1="120"
+                  y1="240"
+                  x2="252"
+                  y2="186"
+                />
+                <line
+                  class="shift-anim-link-outline"
+                  data-shift-part="linkBottom"
+                  x1="120"
+                  y1="276"
+                  x2="252"
+                  y2="222"
+                />
+                <line
+                  class="shift-anim-link"
+                  data-shift-part="linkBottom"
+                  x1="120"
+                  y1="276"
+                  x2="252"
+                  y2="222"
+                />
+                <circle class="shift-anim-pivot" cx="120" cy="240" r="3.5" />
+                <circle class="shift-anim-pivot" cx="120" cy="276" r="3.5" />
+                <circle
+                  class="shift-anim-pivot"
+                  data-shift-part="pivotTop"
+                  cx="252"
+                  cy="186"
+                  r="3.5"
+                />
+                <circle
+                  class="shift-anim-pivot"
+                  data-shift-part="pivotBottom"
+                  cx="252"
+                  cy="222"
+                  r="3.5"
+                />
+                <path
+                  class="shift-anim-spring"
+                  data-shift-part="spring"
+                  d="M124 284 L252 224"
+                />
+                <line
+                  class="shift-anim-cable"
+                  data-shift-part="cable"
+                  x1="90"
+                  y1="232"
+                  x2="252"
+                  y2="178"
+                />
+                <g data-shift-part="cage" transform="translate(276 186)">
+                  <rect
+                    class="shift-anim-moving"
+                    x="-32"
+                    y="-14"
+                    width="16"
+                    height="52"
+                    rx="5"
+                  />
+                  <rect
+                    class="shift-anim-moving"
+                    x="-18"
+                    y="8"
+                    width="12"
+                    height="10"
+                  />
+                  <circle class="shift-anim-pivot" cx="-24" cy="-8" r="3" />
+                  <rect
+                    class="shift-anim-cage"
+                    x="-9"
+                    y="-15"
+                    width="18"
+                    height="82"
+                    rx="9"
+                  />
+                </g>
+                <polyline
+                  class="shift-anim-chain"
+                  data-shift-part="chainLower"
+                  points="276,168 276,186 276,250 548,228"
+                />
+                <g class="shift-anim-ghost" data-shift-part="ghost" opacity="0">
+                  <circle r="11" />
+                  <circle cy="52" r="12" />
+                </g>
+                <g data-shift-part="cage" transform="translate(276 186)">
+                  <circle class="shift-anim-pulley" r="11" />
+                  <circle class="shift-anim-pulley-hub" r="3" />
+                  <circle class="shift-anim-pulley" cy="52" r="12" />
+                  <circle class="shift-anim-pulley-hub" cy="52" r="3" />
+                </g>
+                <text x="18" y="16" class="diagram-label diagram-label-sm">
+                  shifter
+                </text>
+                <text x="4" y="104" class="diagram-label diagram-label-sm">
+                  cable
+                </text>
+                <text x="4" y="262" class="diagram-label diagram-label-sm">
+                  barrel
+                </text>
+                <text x="4" y="278" class="diagram-label diagram-label-sm">
+                  adjuster
+                </text>
+                <line
+                  class="diagram-leader"
+                  x1="46"
+                  y1="254"
+                  x2="69"
+                  y2="237"
+                />
+                <circle cx="69" cy="237" r="1.8" fill="#5E6670" />
+                <text
+                  x="96"
+                  y="318"
+                  text-anchor="middle"
+                  class="diagram-label diagram-label-sm"
+                >
+                  limit screws
+                </text>
+                <line
+                  class="diagram-leader"
+                  x1="96"
+                  y1="305"
+                  x2="101"
+                  y2="280"
+                />
+                <circle cx="101" cy="280" r="1.8" fill="#5E6670" />
+                <text
+                  x="196"
+                  y="318"
+                  text-anchor="middle"
+                  class="diagram-label diagram-label-sm"
+                >
+                  return spring
+                </text>
+                <line
+                  class="diagram-leader"
+                  data-shift-part="springLeader"
+                  x1="196"
+                  y1="305"
+                  x2="188"
+                  y2="254"
+                />
+                <circle
+                  data-shift-part="springLeaderEnd"
+                  cx="188"
+                  cy="254"
+                  r="1.8"
+                  fill="#5E6670"
+                />
+                <text x="84" y="194" class="diagram-label diagram-label-sm">
+                  parallelogram
+                </text>
+                <line
+                  class="diagram-leader"
+                  data-shift-part="bodyLeader"
+                  x1="140"
+                  y1="199"
+                  x2="166"
+                  y2="221"
+                />
+                <circle
+                  data-shift-part="bodyLeaderEnd"
+                  cx="166"
+                  cy="221"
+                  r="1.8"
+                  fill="#5E6670"
+                />
+                <text
+                  class="diagram-label diagram-label-sm"
+                  data-shift-part="guideLabel"
+                  x="294"
+                  y="191"
+                >
+                  guide pulley
+                </text>
+                <text
+                  class="diagram-label diagram-label-sm"
+                  data-shift-part="tensionLabel"
+                  x="276"
+                  y="272"
+                  text-anchor="middle"
+                >
+                  tension pulley
+                </text>
+                <text
+                  x="300"
+                  y="24"
+                  text-anchor="middle"
+                  class="diagram-label diagram-label-sm"
+                >
+                  7 cogs
+                </text>
+                <text
+                  x="166"
+                  y="110"
+                  text-anchor="end"
+                  class="diagram-label diagram-label-sm diagram-label-bold"
+                >
+                  gear 1
+                </text>
+                <text
+                  x="166"
+                  y="130"
+                  text-anchor="end"
+                  class="diagram-label diagram-label-sm"
+                >
+                  28 teeth
+                </text>
+                <text
+                  x="388"
+                  y="110"
+                  class="diagram-label diagram-label-sm diagram-label-bold"
+                >
+                  gear 7
+                </text>
+                <text x="388" y="130" class="diagram-label diagram-label-sm">
+                  14 teeth
+                </text>
+                <text
+                  x="548"
+                  y="248"
+                  text-anchor="middle"
+                  class="diagram-label diagram-label-sm"
+                >
+                  chainring
+                </text>
+                <text
+                  x="548"
+                  y="265"
+                  text-anchor="middle"
+                  class="diagram-label diagram-label-sm"
+                >
+                  44 teeth
+                </text>
+                <g
+                  class="marker shift-anim-badge system-drivetrain"
+                  data-shift-badge="1"
+                  transform="translate(96 42)"
+                >
+                  <circle class="marker-circle" r="11" />
+                  <text class="marker-number" y="4.5">1</text>
+                </g>
+                <g
+                  class="marker shift-anim-badge system-drivetrain"
+                  data-shift-badge="2"
+                  transform="translate(68 189)"
+                >
+                  <circle class="marker-circle" r="11" />
+                  <text class="marker-number" y="4.5">2</text>
+                </g>
+                <g
+                  class="marker shift-anim-badge system-drivetrain"
+                  data-shift-badge="3"
+                  data-shift-part="hopBadge"
+                  transform="translate(246 43)"
+                >
+                  <circle class="marker-circle" r="11" />
+                  <text class="marker-number" y="4.5">3</text>
+                </g>
+              </svg>
+            </div>
+            <p
+              class="shift-animation-status"
+              aria-live="polite"
+              data-shift-status
+            ></p>
+            <figcaption class="figure-bar">
+              <span class="figure-bar-actions">
+                <button class="btn" type="button" data-action="replay">
+                  Replay
+                </button>
+                <button class="btn" type="button" data-action="release">
+                  Release the cable
+                </button>
+              </span>
+              <span class="figure-bar-text"
+                >Seen from behind. Grey parts are fixed to the frame; yellow
+                parts move. One click moves the cable one fixed step, so the
+                guide pulley lines up with the next cog and the chain
+                follows.</span
+              >
+            </figcaption>
+          </figure>
+          <figure class="figure">
             <div class="scroll-x">
               <svg
                 class="diagram diagram-photo diagram-scroll"
@@ -2344,33 +2837,6 @@
                   height="293"
                   preserveAspectRatio="xMidYMid meet"
                 />
-                <g class="shift-demo-cage">
-                  <circle
-                    cx="322"
-                    cy="124"
-                    r="20"
-                    fill="none"
-                    stroke="#2563EB"
-                    stroke-width="3"
-                  />
-                  <circle
-                    cx="324"
-                    cy="250"
-                    r="22"
-                    fill="none"
-                    stroke="#2563EB"
-                    stroke-width="3"
-                  />
-                  <line
-                    x1="322"
-                    y1="144"
-                    x2="324"
-                    y2="228"
-                    stroke="#2563EB"
-                    stroke-width="2"
-                    stroke-dasharray="4 3"
-                  />
-                </g>
                 <text x="4" y="56" class="diagram-label diagram-label-sm">
                   7 cogs
                 </text>
@@ -2479,13 +2945,10 @@
                 <circle cx="422" cy="146" r="1.8" fill="#5E6670" />
               </svg>
             </div>
-            <figcaption class="figure-bar">
-              <button class="btn" type="button" data-action="shift">
-                Play a shift</button
-              ><span class="figure-bar-text"
-                >The guide pulley (upper) steers the chain onto the cog. The
-                tension pulley (lower) keeps the chain tight.</span
-              >
+            <figcaption>
+              The real part, from the side: the guide pulley (upper) steers the
+              chain onto the cog; the tension pulley (lower) keeps the chain
+              tight.
             </figcaption>
           </figure>
           <details class="disclosure">

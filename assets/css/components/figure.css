@@ -13,8 +13,15 @@
 
 .figure-bar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 12px;
+}
+
+.figure-bar-actions {
+  display: flex;
+  flex: none;
+  gap: 8px;
 }
 
 .figure-bar .btn {
