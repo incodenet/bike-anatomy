@@ -6,9 +6,6 @@
   margin: 12px 0;
 }
 
-/* Bleed up to 60px past the text column, but never past the viewport: the
-   bleed shrinks with the free space beside the column. The 8px term keeps a
-   gap at the edge even though 100vw includes the scrollbar. */
 .figure-wide {
   --figure-bleed: clamp(0px, (100vw - var(--container-width)) / 2 + 8px, 60px);
 

@@ -9,6 +9,6 @@
 }
 
 .term:hover,
-.term[aria-describedby] {
+.term.active {
   color: var(--color-brand-primary-hover);
 }

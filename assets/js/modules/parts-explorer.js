@@ -30,16 +30,13 @@ export const initPartsExplorer = () => {
       group.classList.toggle("active", group.dataset.partHighlight === number);
     });
     hotspots.forEach((hotspot) => {
-      hotspot.setAttribute(
-        "aria-pressed",
-        String(hotspot.dataset.partHotspot === number),
+      hotspot.classList.toggle(
+        "active",
+        hotspot.dataset.partHotspot === number,
       );
     });
     legendButtons.forEach((button) => {
-      button.setAttribute(
-        "aria-pressed",
-        String(button.dataset.partButton === number),
-      );
+      button.classList.toggle("active", button.dataset.partButton === number);
     });
 
     partName.textContent = part

@@ -39,7 +39,7 @@ export const initGlossary = () => {
 
   const hide = () => {
     popover.hidden = true;
-    openTerm?.removeAttribute("aria-describedby");
+    openTerm?.classList.remove("active");
     openTerm = null;
   };
 
@@ -47,7 +47,7 @@ export const initGlossary = () => {
     const entry = document.querySelector(`#term-${termButton.dataset.term}`);
     if (!entry) return;
 
-    openTerm?.removeAttribute("aria-describedby");
+    openTerm?.classList.remove("active");
     renderPopoverContent(popover, {
       term: getText(entry),
       definition: getText(entry.nextElementSibling),
@@ -65,14 +65,10 @@ export const initGlossary = () => {
     popover.style.setProperty("--popover-top", `${top}px`);
 
     openTerm = termButton;
-    termButton.setAttribute("aria-describedby", popover.id);
+    termButton.classList.add("active");
   };
 
   terms.forEach((termButton) => {
-    termButton.setAttribute(
-      "aria-label",
-      `${getText(termButton)}: show definition`,
-    );
     termButton.addEventListener("mouseenter", () => show(termButton));
     termButton.addEventListener("mouseleave", hide);
     termButton.addEventListener("focus", () => show(termButton));

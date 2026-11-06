@@ -40,7 +40,7 @@
 }
 
 .hotspot:hover .marker-circle,
-.hotspot[aria-pressed="true"] .marker-circle {
+.hotspot.active .marker-circle {
   stroke: var(--color-neutral-surface);
   stroke-width: 2;
   filter: var(--shadow-marker);
@@ -106,7 +106,7 @@
 }
 
 .legend-item:hover,
-.legend-item[aria-pressed="true"] {
+.legend-item.active {
   background-color: var(--color-neutral-subtle);
 }
 
@@ -253,7 +253,7 @@
   stroke-width: 2.5;
 }
 
-.ratio-bar[aria-pressed="true"] .ratio-bar-rect {
+.ratio-bar.active .ratio-bar-rect {
   fill: var(--color-system-drivetrain);
   stroke: var(--color-system-drivetrain);
 }

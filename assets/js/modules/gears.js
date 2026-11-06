@@ -55,10 +55,6 @@ export const initGears = () => {
     const { ratio, speedKmh } = calculateFor(gear);
 
     gearInput.value = gear;
-    gearInput.setAttribute(
-      "aria-valuetext",
-      `Gear ${gear}, ${teeth}-tooth cog, ratio ${ratio.toFixed(2)}`,
-    );
     outputs.gear.textContent = gear;
     outputs.cog.textContent = `${teeth} teeth`;
     outputs.ratio.textContent = ratio.toFixed(2);
@@ -76,7 +72,7 @@ export const initGears = () => {
       label.classList.toggle("active", isGear(label.dataset.cogGear));
     });
     bars.forEach((bar) => {
-      bar.setAttribute("aria-pressed", String(isGear(bar.dataset.gearBar)));
+      bar.classList.toggle("active", isGear(bar.dataset.gearBar));
     });
     rows.forEach((row) =>
       row.classList.toggle("active", isGear(row.dataset.gearRow)),
